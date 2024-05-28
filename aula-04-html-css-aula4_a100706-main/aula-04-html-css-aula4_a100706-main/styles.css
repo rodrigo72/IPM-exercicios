@@ -1,0 +1,208 @@
+:root {
+  --background-color: #ECEEEC;
+  --accent-color: #7DF6B4;
+  --accent-color-dark: #77d5a1;
+  --light-color: #FFF;
+  --dark-color: #000;
+  --text-secondary-color: #3F3F3F;
+  --border-color: #4D4D4D;
+}
+
+html, body {
+  margin: 0;
+  font-family: 'Anek Latin';
+}
+
+.card {
+  padding: 20px;
+  background-color: var(--light-color);
+}
+
+/* Exercício 1 */
+#app {
+  display: grid;
+  grid-template-rows: 50px auto auto 1fr 100px;
+  grid-template-columns: 1fr 3fr 2fr 1fr;
+  gap: 20px;
+  background-color: var(--background-color);
+  grid-template-areas:
+    "nav nav nav nav"
+    ". main categories ."
+    ". main bloggers ."
+    ". main . ."
+    "footer footer footer footer";
+}
+
+#main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: categories;
+}
+
+section {
+  grid-area: bloggers;
+}
+
+/* Exercício 2 */
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  grid-area: footer;
+  background-color: var(--light-color);
+}
+
+
+/* Exercício 3 */
+.lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+.elemento-lista {
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+  color:black;
+  transition: color 0.3s;
+}
+
+.elemento-lista:hover {
+  color: var(--accent-color-dark)
+}
+
+/* Exercício 4 */
+
+article {
+  margin-bottom: 20px;
+}
+
+.autor, .data {
+  margin: 0;
+  color: var(--text-secondary-color);
+}
+
+.categorias {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.elemento-categorias {
+  margin-right: 20px;
+  margin-top: 10px;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--background-color);
+}
+
+/* Exercício 5 */
+
+.logo {
+  width: 50px;
+}
+
+#nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: var(--light-color);
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  font-weight: 600;
+  background-color: var(--light-color);
+}
+
+.sign-up-button {
+  background-color: var(--accent-color);
+  color: black;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.sign-up-button:hover {
+  background-color: var(--dark-color);
+  color: var(--accent-color);
+}
+
+/* Exercício 6 */
+
+.add-button {
+  position:fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.add-button img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Exercício 7 */
+
+#gallery {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2px;
+  padding: 0;
+  margin: 0;
+}
+
+#gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container {
+  position: relative; /* por causa do absolute abaixo */
+  display: inline-block;
+  padding: 0;
+}
+
+.overlay {
+  position: absolute; /* posicionado relativamente ao container */
+  bottom: 0;
+  left: 0;
+  width: 100%; 
+  background-color: rgba(0, 0, 0, 0.589);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--light-color);
+  font-weight: 600;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
